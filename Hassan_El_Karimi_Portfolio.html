@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan El Karimi | Ingénieur d'application en Génie Logiciel & Électromécanique</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #34d399 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-[#070b12] text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#070b12]/85 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-600 to-emerald-500 flex items-center justify-center font-extrabold text-white text-lg shadow-lg shadow-brand-600/20 group-hover:scale-105 transition-transform">
+                    HK
+                </div>
+                <div>
+                    <span class="text-base sm:text-lg font-bold tracking-tight text-white block leading-tight">Hassan El Karimi</span>
+                    <span class="text-xs text-brand-400 font-medium tracking-wide" data-fr="Génie Logiciel & Automatisme" data-en="Software Engineering & Automation">Génie Logiciel & Automatisme</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center space-x-6">
+                <a href="#about" class="text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-fr="À Propos" data-en="About">À Propos</a>
+                <a href="#skills" class="text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-fr="Compétences" data-en="Skills">Compétences</a>
+                <a href="#services" class="text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-fr="Services" data-en="Services">Services</a>
+                <a href="#experience" class="text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-fr="Expériences" data-en="Experience">Expériences</a>
+                <a href="#education" class="text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-brand-400 transition-colors" data-fr="Formation" data-en="Education">Formation</a>
+                
+                <!-- Language Switcher Button -->
+                <button id="lang-toggle-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-brand-500 text-xs font-bold text-slate-200 transition-all">
+                    <i class="fa-solid fa-globe text-brand-400"></i>
+                    <span id="lang-indicator">FR / EN</span>
+                </button>
+
+                <a href="#contact" class="px-4 py-2.5 text-xs uppercase tracking-wider font-bold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-md hover:shadow-brand-500/25" data-fr="Me Contacter" data-en="Contact Me">Me Contacter</a>
+            </nav>
+
+            <!-- Mobile Actions -->
+            <div class="flex items-center gap-3 lg:hidden">
+                <button id="lang-toggle-btn-mobile" class="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs font-bold text-slate-200">
+                    <i class="fa-solid fa-globe text-brand-400 mr-1"></i><span id="lang-indicator-mobile">FR</span>
+                </button>
+                <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800" data-fr="À Propos" data-en="About">À Propos</a>
+            <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800" data-fr="Compétences" data-en="Skills">Compétences</a>
+            <a href="#services" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800" data-fr="Services" data-en="Services">Services</a>
+            <a href="#experience" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800" data-fr="Expériences" data-en="Experience">Expériences</a>
+            <a href="#education" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800" data-fr="Formation" data-en="Education">Formation</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-white bg-brand-600 hover:bg-brand-500 text-center" data-fr="Me Contacter" data-en="Contact Me">Me Contacter</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[92vh] flex items-center justify-center py-16 overflow-hidden">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-800 text-brand-400 text-xs font-semibold uppercase tracking-wider shadow-sm">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> 
+                            <span data-fr="Spécialiste Génie Logiciel & Systèmes Industriels" data-en="Software Engineering & Industrial Systems Specialist">Spécialiste Génie Logiciel & Systèmes Industriels</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            <span data-fr="Ingénieur d'application en" data-en="Application Engineer in">Ingénieur d'application en</span> <br class="hidden sm:inline"/>
+                            <span class="gradient-text" data-fr="Génie Logiciel & Électromécanique" data-en="Software Engineering & Electromechanics">Génie Logiciel & Électromécanique</span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0" data-fr="Ingénieur indépendant spécialisé dans le développement d'applications Web/Desktop d'entreprise (JEE, .NET, PHP), l'architecture de bases de données, la Business Intelligence (Pentaho) et l'automatisme industriel Siemens." data-en="Freelance Engineer specialized in full-stack enterprise web/desktop applications (JEE, .NET, PHP), multi-platform databases, Business Intelligence (Pentaho), and Siemens PLC industrial automation.">
+                            Ingénieur indépendant spécialisé dans le développement d'applications Web/Desktop d'entreprise (JEE, .NET, PHP), l'architecture de bases de données, la Business Intelligence (Pentaho) et l'automatisme industriel Siemens.
+                        </p>
+
+                        <!-- Quick Contact Bar -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-slate-300 pt-2">
+                            <a href="mailto:elkarimi.hassan@gmail.com" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-brand-500 transition-colors">
+                                <i class="fa-solid fa-envelope text-brand-400"></i> elkarimi.hassan@gmail.com
+                            </a>
+                            <a href="tel:0660031642" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-400 transition-colors">
+                                <i class="fa-solid fa-phone text-emerald-400"></i> 06 60 03 16 42
+                            </a>
+                            <span class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900 border border-slate-800">
+                                <i class="fa-solid fa-location-dot text-indigo-400"></i> Rabat, Maroc
+                            </span>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold shadow-lg shadow-brand-600/30 transition-all text-center">
+                                <span data-fr="Services Proposés" data-en="Services Offered">Services Proposés</span> <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold transition-all text-center" data-fr="Demander un Devis" data-en="Request a Quote">
+                                Demander un Devis
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Card -->
+                    <div class="lg:col-span-5">
+                        <div class="glass-card rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
+                            <div class="flex flex-col items-center text-center space-y-4">
+                                <div class="w-32 h-32 rounded-2xl bg-gradient-to-tr from-brand-600 to-emerald-500 p-1 shadow-xl">
+                                    <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center overflow-hidden">
+                                        <i class="fa-solid fa-user-gear text-5xl text-brand-400"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Hassan El Karimi</h3>
+                                    <p class="text-sm text-brand-400 font-medium" data-fr="Ingénieur Génie Logiciel & Électromécanique" data-en="Software & Electromechanical Engineer">Ingénieur Génie Logiciel & Électromécanique</p>
+                                </div>
+
+                                <div class="w-full border-t border-slate-800 pt-4 space-y-3 text-left text-xs">
+                                    <div class="flex justify-between items-center text-slate-300">
+                                        <span class="text-slate-400"><i class="fa-solid fa-graduation-cap text-brand-400 mr-2"></i> <span data-fr="Diplôme :" data-en="Degree:">Diplôme :</span></span>
+                                        <span class="font-semibold text-slate-200" data-fr="Ingénieur en Génie Logiciel" data-en="Software Engineering Degree">Ingénieur en Génie Logiciel</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-slate-300">
+                                        <span class="text-slate-400"><i class="fa-solid fa-building-columns text-brand-400 mr-2"></i> <span data-fr="École :" data-en="School:">École :</span></span>
+                                        <span class="font-semibold text-slate-200">High Tech Rabat</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-slate-300">
+                                        <span class="text-slate-400"><i class="fa-solid fa-microchip text-emerald-400 mr-2"></i> <span data-fr="Spécialité :" data-en="Specialty:">Spécialité :</span></span>
+                                        <span class="font-semibold text-slate-200" data-fr="Systèmes Automatisés (ISTA)" data-en="Automated Systems (ISTA)">Systèmes Automatisés (ISTA)</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-slate-300">
+                                        <span class="text-slate-400"><i class="fa-solid fa-language text-indigo-400 mr-2"></i> <span data-fr="Langues :" data-en="Languages:">Langues :</span></span>
+                                        <span class="font-semibold text-slate-200" data-fr="Arabe, Français, Anglais" data-en="Arabic, French, English">Arabe, Français, Anglais</span>
+                                    </div>
+                                </div>
+
+                                <div class="w-full pt-2">
+                                    <a href="mailto:elkarimi.hassan@gmail.com?subject=Demande%20de%20service" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-brand-400 font-semibold border border-slate-700 transition-colors flex items-center justify-center gap-2 text-xs">
+                                        <i class="fa-solid fa-paper-plane"></i> <span data-fr="Envoyer un e-mail direct" data-en="Send Direct Email">Envoyer un e-mail direct</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Summary -->
+        <section id="about" class="py-20 bg-slate-900/40 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center space-y-4">
+                    <span class="text-brand-400 font-semibold text-xs uppercase tracking-widest" data-fr="Profil d'Ingénieur" data-en="Engineering Profile">Profil d'Ingénieur</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white" data-fr="Expert Polyvalent en Logiciel & Systèmes Industriels" data-en="Versatile Software & Industrial Systems Specialist">Expert Polyvalent en Logiciel & Systèmes Industriels</h2>
+                    <p class="text-slate-300 text-base leading-relaxed" data-fr="Diplômé en <strong>Génie Logiciel</strong> de l'école High Technology School in Morocco (High Tech, Rabat) et titulaire d'un diplôme de <strong>Technicien Spécialisé en Électromécanique des systèmes automatisés (ISTA Hay Riad)</strong>, je propose une double expertise à forte valeur ajoutée : le développement d'applications d'entreprise, la gestion de bases de données complexes, la Business Intelligence, les réseaux informatiques et l'automatisme industriel Siemens." data-en="Holding a degree in <strong>Software Engineering</strong> from High Tech Rabat and a specialized diploma in <strong>Automated Electromechanical Systems (ISTA)</strong>, I offer rare double expertise spanning enterprise applications, database architecture, BI, IT networks, and Siemens industrial automation.">
+                        Diplômé en <strong>Génie Logiciel</strong> de l'école High Technology School in Morocco (High Tech, Rabat) et titulaire d'un diplôme de <strong>Technicien Spécialisé en Électromécanique des systèmes automatisés (ISTA Hay Riad)</strong>, je propose une double expertise à forte valeur ajoutée : le développement d'applications d'entreprise, la gestion de bases de données complexes, la Business Intelligence, les réseaux informatiques et l'automatisme industriel Siemens.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+                    <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+                        <div class="text-3xl font-extrabold text-brand-400 mb-1">JEE / .NET</div>
+                        <div class="text-xs text-slate-400" data-fr="Frameworks Entreprise" data-en="Enterprise Frameworks">Frameworks Entreprise</div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+                        <div class="text-3xl font-extrabold text-emerald-400 mb-1">5+ BDD</div>
+                        <div class="text-xs text-slate-400">Oracle, Postgres, SQL Server, MySQL</div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+                        <div class="text-3xl font-extrabold text-indigo-400 mb-1">Step7 PLC</div>
+                        <div class="text-xs text-slate-400" data-fr="Automatisme Siemens" data-en="Siemens Automation">Automatisme Siemens</div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+                        <div class="text-3xl font-extrabold text-brand-400 mb-1">BI Pentaho</div>
+                        <div class="text-xs text-slate-400">Analytics & Crystal Reports</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Grid -->
+        <section id="skills" class="py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-400 font-semibold text-xs uppercase tracking-widest" data-fr="Compétences Professionnelles" data-en="Professional Skills">Compétences Professionnelles</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2" data-fr="Compétences & Technologies" data-en="Technical Capabilities">Compétences & Technologies</h2>
+                    <p class="text-slate-400 text-sm sm:text-base" data-fr="Aperçu synthétique des technologies, langages de programmation, bases de données et outils d'automatisme maîtrisés." data-en="Comprehensive breakdown of technologies, programming languages, databases, and industrial tools.">Aperçu synthétique des technologies, langages de programmation, bases de données et outils d'automatisme maîtrisés.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Web & Full-Stack -->
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-brand-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white" data-fr="Développement Web" data-en="Web Development">Développement Web</h3>
+                        <ul class="text-xs text-slate-300 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> JEE (Hibernate, Spring)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> PHP5, HTML/XHTML, CSS</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> JavaScript, AJAX</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Web Sémantique (XML, XPATH, XSL)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Programming Languages -->
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-brand-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white" data-fr="Langages de Programmation" data-en="Programming Languages">Langages de Programmation</h3>
+                        <ul class="text-xs text-slate-300 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> C, C++, Java SE</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> C#, VB.Net</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> SQL, PL/SQL, HQL</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Logique Automate Siemens Step7</li>
+                        </ul>
+                    </div>
+
+                    <!-- Databases & BI -->
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-emerald-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white" data-fr="Bases de Données & BI" data-en="Databases & BI">Bases de Données & BI</h3>
+                        <ul class="text-xs text-slate-300 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Oracle, PostgreSQL, MySQL</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Microsoft SQL Server, MS Access</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Business Intelligence : Pentaho</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Crystal Report Designer</li>
+                        </ul>
+                    </div>
+
+                    <!-- Automation & Industrial -->
+                    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-indigo-500/50 transition-colors">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-industry"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white" data-fr="Électromécanique & Réseau" data-en="Electromechanics & Network">Électromécanique & Réseau</h3>
+                        <ul class="text-xs text-slate-300 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Automates Siemens Step7</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Moteurs Électriques & Capteurs</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Réseaux Ethernet, Windows Server</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Merise, UML (Power AMC, Rose)</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section with Filter Buttons -->
+        <section id="services" class="py-24 bg-slate-900/40 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-brand-400 font-semibold text-xs uppercase tracking-widest" data-fr="Services Sur Mesure" data-en="Tailored Services">Services Sur Mesure</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2" data-fr="Services Proposés aux Clients" data-en="Services Provided for Clients">Services Proposés aux Clients</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2" data-fr="Solutions d'ingénierie logicielle, d'architecture BDD et d'automatisme adaptées à vos besoins." data-en="Tailored engineering, software, database, and automation solutions.">Solutions d'ingénierie logicielle, d'architecture BDD et d'automatisme adaptées à vos besoins.</p>
+                </div>
+
+                <!-- Interactive Category Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12" id="service-filters">
+                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white shadow-md transition-all" data-fr="Tous les Services" data-en="All Services">
+                        Tous les Services
+                    </button>
+                    <button data-filter="web" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition-all" data-fr="Apps Web & Desktop" data-en="Web & Desktop Apps">
+                        Apps Web & Desktop
+                    </button>
+                    <button data-filter="database" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition-all" data-fr="Bases de Données & BI" data-en="Databases & BI">
+                        Bases de Données & BI
+                    </button>
+                    <button data-filter="automation" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition-all" data-fr="Automatisme Industriel" data-en="Industrial Automation">
+                        Automatisme Industriel
+                    </button>
+                    <button data-filter="it" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition-all" data-fr="IT, Réseau & Mobile" data-en="IT & Mobile">
+                        IT, Réseau & Mobile
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+                    
+                    <!-- Service 1 -->
+                    <div class="service-card bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-brand-500/50 transition-all" data-category="web">
+                        <div class="w-14 h-14 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-fr="Développement d'Applications Sur Mesure" data-en="Custom Application Development">Développement d'Applications Sur Mesure</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4" data-fr="Conception et développement complet de logiciels desktop et d'applications web d'entreprise avec JEE (Spring, Hibernate), C#, VB.Net, C++ et PHP5." data-en="Full-cycle custom desktop and enterprise web software engineering using JEE (Spring, Hibernate), C#, VB.Net, C++, and PHP5.">
+                            Conception et développement complet de logiciels desktop et d'applications web d'entreprise avec JEE (Spring, Hibernate), C#, VB.Net, C++ et PHP5.
+                        </p>
+                        <span class="text-[10px] font-semibold tracking-wider text-brand-400 uppercase bg-brand-500/10 px-2.5 py-1 rounded-md">JEE / .NET / PHP</span>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-emerald-500/50 transition-all" data-category="database">
+                        <div class="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-fr="Architecture & Optimisation BDD" data-en="Enterprise Database Architecture">Architecture & Optimisation BDD</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4" data-fr="Modélisation conceptuelle (Merise/UML), optimisation de requêtes SQL, procédures stockées (PL/SQL) et administration sous Oracle, PostgreSQL et SQL Server." data-en="Relational database modeling (Merise/UML), SQL query optimization, stored procedures (PL/SQL), and administration across Oracle, PostgreSQL, and SQL Server.">
+                            Modélisation conceptuelle (Merise/UML), optimisation de requêtes SQL, procédures stockées (PL/SQL) et administration sous Oracle, PostgreSQL et SQL Server.
+                        </p>
+                        <span class="text-[10px] font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-500/10 px-2.5 py-1 rounded-md">Oracle / SQL Server / Postgres</span>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-indigo-500/50 transition-all" data-category="automation">
+                        <div class="w-14 h-14 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-fr="Automatisme Siemens & Moteurs" data-en="Siemens Automation & Motor Control">Automatisme Siemens & Moteurs</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4" data-fr="Programmation d'automates Siemens Step7, maintenance des lignes de production automatisées, convoyeurs, capteurs de poids et mise en service de moteurs électriques." data-en="Siemens Step7 PLC programming, automated bottling and production line maintenance, conveyor belts, weight sensors, and electric motor commissioning.">
+                            Programmation d'automates Siemens Step7, maintenance des lignes de production automatisées, convoyeurs, capteurs de poids et mise en service de moteurs électriques.
+                        </p>
+                        <span class="text-[10px] font-semibold tracking-wider text-indigo-400 uppercase bg-indigo-500/10 px-2.5 py-1 rounded-md">Step7 / Siemens / PLC</span>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-brand-500/50 transition-all" data-category="it">
+                        <div class="w-14 h-14 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-fr="Applications Android & Web Services" data-en="Android Apps & Web Services">Applications Android & Web Services</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4" data-fr="Développement Android natif en Java, intégration de Web Services (REST/SOAP) et connecteurs de suivi d'activité (ex. plateforme JIRA)." data-en="Native Java Android development, Web Services REST/SOAP integration, platform customization, and enterprise tracker tools (e.g. JIRA connectors).">
+                            Développement Android natif en Java, intégration de Web Services (REST/SOAP) et connecteurs de suivi d'activité (ex. plateforme JIRA).
+                        </p>
+                        <span class="text-[10px] font-semibold tracking-wider text-brand-400 uppercase bg-brand-500/10 px-2.5 py-1 rounded-md">Android / Java / Web Services</span>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="service-card bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-emerald-500/50 transition-all" data-category="database">
+                        <div class="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-fr="Business Intelligence & Reporting" data-en="Business Intelligence & Reporting">Business Intelligence & Reporting</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4" data-fr="Mise en place de solutions BI d'entreprise avec Pentaho BI et création d'états de sortie personnalisés avec Crystal Report Designer et Pentaho Report Designer." data-en="BI pipeline implementation using Pentaho BI tools and report generation design with Crystal Report Designer & Pentaho Report Designer.">
+                            Mise en place de solutions BI d'entreprise avec Pentaho BI et création d'états de sortie personnalisés avec Crystal Report Designer et Pentaho Report Designer.
+                        </p>
+                        <span class="text-[10px] font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-500/10 px-2.5 py-1 rounded-md">Pentaho / Crystal Reports</span>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="service-card bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-indigo-500/50 transition-all" data-category="it">
+                        <div class="w-14 h-14 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3" data-fr="Réseau IT & Infrastructure Serveur" data-en="IT Network & Server Infrastructure">Réseau IT & Infrastructure Serveur</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4" data-fr="Création et câblage de réseaux Ethernet, configuration Windows Server 2003, déploiement de CMS (Liferay, Joomla) et maintenance préventive du parc informatique." data-en="Ethernet network creation, cabling, switch configuration, Windows 2003 Server administration, CMS deployments (Liferay, Joomla), and hardware maintenance.">
+                            Création et câblage de réseaux Ethernet, configuration Windows Server 2003, déploiement de CMS (Liferay, Joomla) et maintenance préventive du parc informatique.
+                        </p>
+                        <span class="text-[10px] font-semibold tracking-wider text-indigo-400 uppercase bg-indigo-500/10 px-2.5 py-1 rounded-md">Réseau / Hardware / Serveurs</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-400 font-semibold text-xs uppercase tracking-widest" data-fr="Expérience Professionnelle" data-en="Professional Experience">Expérience Professionnelle</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2" data-fr="Parcours & Missions Principales" data-en="Career Highlights & Missions">Parcours & Missions Principales</h2>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-8 relative before:absolute before:inset-0 before:left-3 sm:before:left-1/2 before:-translate-x-px before:h-full before:w-0.5 before:bg-slate-800">
+
+                    <!-- Item 1 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group border border-slate-800 rounded-2xl p-6 bg-slate-900/80">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-600 text-white shrink-0 shadow-lg md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <i class="fa-solid fa-briefcase text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] space-y-2">
+                            <span class="text-xs font-semibold text-brand-400" data-fr="Janvier 2013 – Mars 2013" data-en="January 2013 – March 2013">Janvier 2013 – Mars 2013</span>
+                            <h4 class="text-lg font-bold text-white" data-fr="Ingénieur Informaticien" data-en="Software Engineer">Ingénieur Informaticien</h4>
+                            <p class="text-xs text-slate-400 font-medium">RM EXPERT - Casablanca</p>
+                            <ul class="text-xs text-slate-300 space-y-1 pt-2">
+                                <li data-fr="• Maintenance et évolution du réseau interne de l'entreprise." data-en="• Maintenance and evolution of the company internal network.">• Maintenance et évolution du réseau interne de l'entreprise.</li>
+                                <li data-fr="• Développement d'une application C# avec Crystal Report Designer." data-en="• Development of a C# application using Crystal Report Designer.">• Développement d'une application C# avec Crystal Report Designer.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group border border-slate-800 rounded-2xl p-6 bg-slate-900/80">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-600 text-white shrink-0 shadow-lg md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <i class="fa-solid fa-mobile-screen text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] space-y-2">
+                            <span class="text-xs font-semibold text-emerald-400" data-fr="Février 2011 – Juin 2011 / Juin 2010 – Août 2010" data-en="February 2011 – June 2011 / June 2010 – August 2010">Février 2011 – Juin 2011 / Juin 2010 – Août 2010</span>
+                            <h4 class="text-lg font-bold text-white" data-fr="Ingénieur Informaticien (PFE)" data-en="Software Engineer (Graduation Project)">Ingénieur Informaticien (PFE)</h4>
+                            <p class="text-xs text-slate-400 font-medium">Société Caciopee - Rabat</p>
+                            <ul class="text-xs text-slate-300 space-y-1 pt-2">
+                                <li data-fr="• Réalisation d'une application Android pour le suivi des activités JIRA (langage/outils : JIRA, Web Services, Android Platform, Java)." data-en="• Realization of an Android app for JIRA activity tracking (JIRA, Web Services, Android Platform, Java).">• Réalisation d'une application Android pour le suivi des activités JIRA (langage/outils : JIRA, Web Services, Android Platform, Java).</li>
+                                <li data-fr="• Formation sur le BI Pentaho et réalisation des états de sortie avec Pentaho Report Designer." data-en="• Training on Pentaho BI and report design with Pentaho Report Designer.">• Formation sur le BI Pentaho et réalisation des états de sortie avec Pentaho Report Designer.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group border border-slate-800 rounded-2xl p-6 bg-slate-900/80">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-600 text-white shrink-0 shadow-lg md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <i class="fa-solid fa-wrench text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] space-y-2">
+                            <span class="text-xs font-semibold text-indigo-400" data-fr="Septembre 2008 – Octobre 2008" data-en="September 2008 – October 2008">Septembre 2008 – Octobre 2008</span>
+                            <h4 class="text-lg font-bold text-white" data-fr="Ingénieur Informaticien (Stage)" data-en="Software Engineer (Internship)">Ingénieur Informaticien (Stage)</h4>
+                            <p class="text-xs text-slate-400 font-medium">Office National de l'Eau Potable (ONEP) - Rabat</p>
+                            <p class="text-xs text-slate-300 pt-2" data-fr="• Maintenance des matériels informatiques et assistance technique." data-en="• Computer hardware maintenance and technical support.">• Maintenance des matériels informatiques et assistance technique.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group border border-slate-800 rounded-2xl p-6 bg-slate-900/80">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-600 text-white shrink-0 shadow-lg md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <i class="fa-solid fa-industry text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] space-y-2">
+                            <span class="text-xs font-semibold text-amber-400" data-fr="Avril 2006 – Juillet 2006" data-en="April 2006 – July 2006">Avril 2006 – Juillet 2006</span>
+                            <h4 class="text-lg font-bold text-white" data-fr="Technicien en Électromécanique" data-en="Electromechanical Technician">Technicien en Électromécanique</h4>
+                            <p class="text-xs text-slate-400 font-medium">Société des Eaux Minérales d'Oulmes - Casablanca</p>
+                            <ul class="text-xs text-slate-300 space-y-1 pt-2">
+                                <li data-fr="• Maintenance des engins de production des boissons gazeuses." data-en="• Maintenance of carbonated beverage production equipment.">• Maintenance des engins de production des boissons gazeuses.</li>
+                                <li data-fr="• Assister au montage d'une nouvelle ligne de cannette." data-en="• Assisting in the assembly and setup of a new canning line.">• Assister au montage d'une nouvelle ligne de cannette.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group border border-slate-800 rounded-2xl p-6 bg-slate-900/80">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-600 text-white shrink-0 shadow-lg md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <i class="fa-solid fa-microchip text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] space-y-2">
+                            <span class="text-xs font-semibold text-emerald-400" data-fr="Avril 2006 – Juillet 2006" data-en="April 2006 – July 2006">Avril 2006 – Juillet 2006</span>
+                            <h4 class="text-lg font-bold text-white" data-fr="Projet de Fin d'Étude (ISTA)" data-en="Final Graduation Project (ISTA)">Projet de Fin d'Étude (ISTA)</h4>
+                            <p class="text-xs text-slate-400 font-medium">ISTA Hay Riad - Rabat</p>
+                            <p class="text-xs text-slate-300 pt-2" data-fr="• Réalisation d'un trieur de pièces automatique (Step7, convoyeur, moteur, capteur de poids)." data-en="• Creation of an automatic parts sorter (Step7 PLC, conveyor, motor, weight sensor).">• Réalisation d'un trieur de pièces automatique (Step7, convoyeur, moteur, capteur de poids).</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 bg-slate-900/40 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-400 font-semibold text-xs uppercase tracking-widest" data-fr="Parcours Académique" data-en="Academic Formation">Parcours Académique</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2" data-fr="Diplômes & Qualifications" data-en="Diplomas & Qualifications">Diplômes & Qualifications</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 space-y-4 relative overflow-hidden">
+                        <div class="text-3xl text-brand-400"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <span class="text-xs font-semibold text-brand-400">2006 – 2011</span>
+                        <h3 class="text-lg font-bold text-white" data-fr="Ingénieur en « Génie Logiciel »" data-en="Degree in Software Engineering">Ingénieur en « Génie Logiciel »</h3>
+                        <p class="text-xs text-slate-400">High Technology School in Morocco (High Tech), Rabat</p>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 space-y-4 relative overflow-hidden">
+                        <div class="text-3xl text-emerald-400"><i class="fa-solid fa-microchip"></i></div>
+                        <span class="text-xs font-semibold text-emerald-400">2004 – 2006</span>
+                        <h3 class="text-lg font-bold text-white" data-fr="Technicien Spécialisé en Électromécanique" data-en="Specialized Electromechanical Technician">Technicien Spécialisé en Électromécanique</h3>
+                        <p class="text-xs text-slate-400" data-fr="Systèmes Automatisés – ISTA Hay Riad, Rabat" data-en="Automated Systems – ISTA Hay Riad, Rabat">Systèmes Automatisés – ISTA Hay Riad, Rabat</p>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 space-y-4 relative overflow-hidden">
+                        <div class="text-3xl text-indigo-400"><i class="fa-solid fa-award"></i></div>
+                        <span class="text-xs font-semibold text-indigo-400">2003 – 2004</span>
+                        <h3 class="text-lg font-bold text-white" data-fr="Baccalauréat Science Expérimentale" data-en="High School Baccalaureate (Experimental Science)">Baccalauréat Science Expérimentale</h3>
+                        <p class="text-xs text-slate-400">Lycée Moulay Abdellah, Rabat</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Freelance Form Section -->
+        <section id="contact" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <span class="text-brand-400 font-semibold text-xs uppercase tracking-widest" data-fr="Contact & Freelance" data-en="Contact & Freelance">Contact & Freelance</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-fr="Travaillons Ensemble" data-en="Let's Work Together">Travaillons Ensemble</h2>
+                        <p class="text-slate-300 text-sm leading-relaxed" data-fr="Besoin d'un développement logiciel sur mesure, d'une assistance en automatisme industriel, d'optimisation BDD ou de maintenance IT ? Contactez-moi directement." data-en="Need custom software development, industrial automation support, database tuning, or IT maintenance? Get in touch directly.">
+                            Besoin d'un développement logiciel sur mesure, d'une assistance en automatisme industriel, d'optimisation BDD ou de maintenance IT ? Contactez-moi directement.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <a href="mailto:elkarimi.hassan@gmail.com" class="flex items-center gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-brand-500 transition-colors group">
+                                <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center text-lg shrink-0 group-hover:bg-brand-600 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium text-xs" data-fr="Adresse E-mail" data-en="Email Address">Adresse E-mail</h5>
+                                    <p class="text-slate-300 text-sm font-semibold">elkarimi.hassan@gmail.com</p>
+                                </div>
+                            </a>
+
+                            <a href="tel:0660031642" class="flex items-center gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500 transition-colors group">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium text-xs" data-fr="GSM / Téléphone" data-en="GSM / Phone">GSM / Téléphone</h5>
+                                    <p class="text-slate-300 text-sm font-semibold">06 60 03 16 42</p>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium text-xs" data-fr="Localisation" data-en="Location">Localisation</h5>
+                                    <p class="text-slate-300 text-sm font-semibold" data-fr="40, Groupe Chourok Hay Nahda 3 - Rabat, Maroc" data-en="40, Groupe Chourok Hay Nahda 3 - Rabat, Morocco">40, Groupe Chourok Hay Nahda 3 - Rabat, Maroc</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7">
+                        <form id="contact-form" class="bg-slate-900 p-8 rounded-2xl border border-slate-800 space-y-6 shadow-xl">
+                            <h3 class="text-xl font-bold text-white mb-2" data-fr="Demande de Projet" data-en="Send Project Request">Demande de Projet</h3>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-2" data-fr="Nom Complet *" data-en="Full Name *">Nom Complet *</label>
+                                    <input type="text" id="form-name" required placeholder="ex. Mohamed Alami" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-2" data-fr="E-mail *" data-en="Email *">E-mail *</label>
+                                    <input type="email" id="form-email" required placeholder="nom@entreprise.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500 transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-2" data-fr="Domaine du Projet *" data-en="Project Type *">Domaine du Projet *</label>
+                                <select id="form-subject" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500 transition-colors">
+                                    <option value="Développement Logiciel" data-fr="Développement Logiciel & Web (JEE, .NET, PHP)" data-en="Software & Web Development (JEE, .NET, PHP)">Développement Logiciel & Web (JEE, .NET, PHP)</option>
+                                    <option value="Bases de Données & BI" data-fr="Bases de Données & BI (Oracle, SQL Server, Pentaho)" data-en="Database Design & BI (Oracle, SQL Server, Pentaho)">Bases de Données & BI (Oracle, SQL Server, Pentaho)</option>
+                                    <option value="Automatisme Industriel" data-fr="Automatisme Industriel & Siemens Step7 PLC" data-en="Industrial Automation & Siemens Step7 PLC">Automatisme Industriel & Siemens Step7 PLC</option>
+                                    <option value="Application Android" data-fr="Application Mobile Android (Java)" data-en="Android Mobile Application Development">Application Mobile Android (Java)</option>
+                                    <option value="IT & Réseau" data-fr="Maintenance IT & Configuration Réseau" data-en="IT Maintenance & Network Setup">Maintenance IT & Configuration Réseau</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-2" data-fr="Message *" data-en="Message *">Message *</label>
+                                <textarea id="form-message-text" required rows="4" placeholder="Décrivez vos besoins, votre projet ou votre délai..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500 transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-lg shadow-brand-600/20 flex items-center justify-center gap-2">
+                                <span data-fr="Envoyer via Client Mail" data-en="Send via Mail Client">Envoyer via Client Mail</span>
+                                <i class="fa-solid fa-paper-plane text-sm"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center font-bold text-white text-xs">
+                    HK
+                </div>
+                <span class="text-slate-400 text-xs">© 2026 Hassan El Karimi. Ingénieur d'application en Génie Logiciel.</span>
+            </div>
+
+            <div class="flex items-center space-x-6 text-slate-400">
+                <a href="mailto:elkarimi.hassan@gmail.com" class="hover:text-brand-400 transition-colors text-base"><i class="fa-solid fa-envelope"></i></a>
+                <a href="tel:0660031642" class="hover:text-brand-400 transition-colors text-base"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Language Toggle Logic
+        let currentLang = 'fr';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            const translatableElements = document.querySelectorAll('[data-fr][data-en]');
+            translatableElements.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    el.innerHTML = text;
+                }
+            });
+
+            // Update indicators
+            document.getElementById('lang-indicator').textContent = lang === 'fr' ? 'FR / EN' : 'EN / FR';
+            document.getElementById('lang-indicator-mobile').textContent = lang.toUpperCase();
+        }
+
+        document.getElementById('lang-toggle-btn').addEventListener('click', () => {
+            setLanguage(currentLang === 'fr' ? 'en' : 'fr');
+        });
+
+        document.getElementById('lang-toggle-btn-mobile').addEventListener('click', () => {
+            setLanguage(currentLang === 'fr' ? 'en' : 'fr');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Services Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-600', 'text-white');
+                    b.classList.add('bg-slate-900', 'text-slate-300');
+                });
+                btn.classList.remove('bg-slate-900', 'text-slate-300');
+                btn.classList.add('bg-brand-600', 'text-white');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                serviceCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form mailto Handler
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const subject = document.getElementById('form-subject').value;
+            const message = document.getElementById('form-message-text').value;
+
+            const mailtoLink = `mailto:elkarimi.hassan@gmail.com?subject=${encodeURIComponent(subject + ' - Demande de ' + name)}&body=${encodeURIComponent("Nom: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+            
+            window.location.href = mailtoLink;
+        });
+    </script>
+</body>
+</html>
